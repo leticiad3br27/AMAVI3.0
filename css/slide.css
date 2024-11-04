@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    top: 0;
+    padding: 0;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #05739D;
+}
+
+section.slider {
+    margin: auto;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    overflow: hidden;
+}
+
+.slider-content {
+    width: 400%;
+    height: auto;
+    display: flex;
+
+}
+
+.slider-content input {
+    display: none;
+}
+
+.slide-box {
+    width: 25%;
+    height: auto;
+    position: relative;
+    text-align: center;
+    transform: scale(1);
+    transition: transform 10s ease;
+}
+
+.slide-box img {
+    border-radius: 10px;
+    width: 65%;
+    max-height: 250px;
+}
+
+.nav-manual, .nav-auto {
+    position: absolute;
+    width: 100%;
+    margin-top: 19%;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-manual .manual-btn, .nav-auto div{
+    width: 30px;
+    height: 1px;
+    border: 1px solid #fff;
+    padding: 1px;
+    cursor: pointer;
+    transition: 2s;
+    border-radius: 2px;
+}
+
+.nav-manual .manual-btn:not(:last-child), .nav-auto div:not(:last-child) {
+    margin-right: 10px;
+}
+
+.nav-manual .manual-btn:hover{
+    background-color: #fff;
+}
+
+/* posso simplificar linha
+ */
+
+#radio1:checked ~ .nav-auto .auto-btn1{
+    background-color: #fff;
+}
+
+#radio2:checked ~ .nav-auto .auto-btn2{
+    background-color: #fff;
+}
+
+#radio3:checked ~ .nav-auto .auto-btn3{
+    background-color: #fff;
+}
+
+#radio1:checked ~ .primeiro{
+    margin-left: 0;
+}
+
+#radio2:checked ~ .primeiro{
+    margin-left: -25%;
+}
+
+#radio3:checked ~ .primeiro{
+    margin-left: -50%;
+}
+
+@media  screen and (max-width: 900px) {
+
+    .nav-auto ,.nav-manual{
+        margin-top: 60%
+    }
+    
+}
+
+@media screen and (max-width:1360px){
+    .nav-auto ,.nav-manual{
+        margin-top: 27%;
+    }
+}
