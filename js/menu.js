@@ -88,8 +88,9 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
 
     let nameTi = document.createElement('h1');
-    let txtname = document.createTextNode('Fulano Medeiros da Silva de oliveira');
+    let txtname = document.createTextNode('Fulano Da silva Parreiras');
     Object.assign(nameTi.style, {
+        color:'white',
         height: '80px',
         fontSize: '18px',
         marginTop: '-45px',
