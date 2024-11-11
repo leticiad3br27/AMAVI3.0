@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c; /* Alterado para um tom de cinza escuro */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #263238; /* Tom de azul escuro */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #1e2a78; /* Azul mais escuro */
+    border-radius: 8px 8px 0 0;
+}
+
+.header .icon {
+    width: 24px;
+    height: 24px;
+    background-image: url('calendar-icon.png');
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.header h1 {
+    color: #ffffff; /* Mantido em branco para contraste */
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+    background-color: #37474f; /* Azul mais claro que o fundo */
+    border-radius: 0 0 8px 8px;
+    overflow-y: auto;
+}
+
+.image-upload {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.image-placeholder {
+    width: 150px;
+    height: 150px;
+    background-color: #1e88e5; /* Azul claro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #ffffff; /* Texto branco para contraste */
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px dashed #ffffff; /* Borda branca pontilhada */
+}
+
+.image-placeholder .plus-icon {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.form {
+    flex: 2;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    color: #ffffff; /* Texto branco */
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #455a64; /* Fundo de campos mais escuro */
+    color: #ffffff; /* Texto branco */
+}
+
+#salvar {
+    width: 100%;
+    padding: 10px;
+    background-color: #1e2a78; /* Botão azul escuro */
+    color: #ffffff; /* Texto branco */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transição suave */
+}
+
+#salvar:hover {
+    background-color: #1565c0; /* Azul mais claro ao passar o mouse */
+}
+#voltar {
+    width: 100%;
+    padding: 10px;
+    background-color: #1e2a78; /* Cor do botão */
+    color: #ffffff; /* Cor do texto */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px; /* Espaço acima do botão */
+    transition: background-color 0.3s; /* Transição suave */
+}
+
+#voltar:hover {
+    background-color: #1565c0; /* Cor ao passar o mouse */
+}
+#imagePreview {
+    display: none; /* Oculto por padrão */
+    margin-top: 10px;
+    max-width: 150px; /* Tamanho máximo da miniatura */
+    border-radius: 8px; /* Borda arredondada */
+}
