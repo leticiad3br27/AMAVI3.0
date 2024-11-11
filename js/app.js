@@ -83,16 +83,25 @@ document.addEventListener('DOMContentLoaded', function() {
     calendar.render();
   }
 
-  // Modo ADM
   const adminSwitch = document.getElementById('adminSwitch');
-  if (adminSwitch) {
+
+// Verifica o estado salvo no localStorage
+if (localStorage.getItem('adminSwitchState') === 'true') {
+    adminSwitch.checked = true;
+}
+
+if (adminSwitch) {
     adminSwitch.addEventListener('change', function() {
-      if (this.checked) {
-        window.location.href = 'ADM.html';
-      }
+        if (this.checked) {
+            localStorage.setItem('adminSwitchState', 'true');
+            window.location.href = 'ADM.html';
+        } else {
+            localStorage.setItem('adminSwitchState', 'false');
+        }
     });
-  }
-});
+}
+
+  
 function mostrarSecao(secaoId) {
   // Esconde todas as seções
   const secoes = document.querySelectorAll('.content-documentos');
