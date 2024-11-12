@@ -1,41 +1,45 @@
+/* Importa a fonte Poppins do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+/* Variáveis de cor para o modo claro */
+:root {
+  --base-clr-light: #ffffff; /* Cor de fundo clara */
+  --line-clr-light: #cccccc; /* Cor de linha clara */
+  --hover-clr-light: #f0f0f0; /* Cor de hover clara */
+  --text-clr-light: #111111; /* Cor do texto clara */
+  --accent-clr-light: #007bff; /* Cor de destaque clara */
+  --secondary-text-clr-light: #555555; /* Cor do texto secundário clara */
+}
 
 /* Variáveis de cor para o modo escuro */
 :root {
-  --base-clr: #11121a;
-  --line-clr: #42434a;
-  --hover-clr: #222533;
-  --text-clr: #e6e6ef;
-  --accent-clr: #5e63ff;
-  --secondary-text-clr: #b0b3c1;
+  --base-clr-dark: #11121a; /* Cor de fundo escura */
+  --line-clr-dark: #42434a; /* Cor de linha escura */
+  --hover-clr-dark: #222533; /* Cor de hover escura */
+  --text-clr-dark: #e6e6ef; /* Cor do texto escura */
+  --accent-clr-dark: #5e63ff; /* Cor de destaque escura */
+  --secondary-text-clr-dark: #b0b3c1; /* Cor do texto secundário escura */
 }
 
-
-body.light-mode {
-  --base-clr: #ffffff;
-  --line-clr: #cccccc;
-  --hover-clr: #e8e8e8;
-  --text-clr: #333333;
-  --accent-clr: #5e63ff;
-  --secondary-text-clr: #666666;
-}
-
+/* Reseta margens e preenchimentos de todos os elementos */
 * {
   margin: 0;
   padding: 0;
 }
 
+/* Define a fonte e o espaçamento entre linhas para o HTML */
 html {
-  font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.5rem;
+  font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a fonte */
+  line-height: 1.5rem; /* Define o espaçamento entre linhas */
 }
 
+/* Estilo do corpo da página */
 body {
-  min-height: 100vh;
-  background-color: var(--base-clr);
-  color: var(--text-clr);
-  display: grid;
-  grid-template-columns: auto 1fr;
+  min-height: 100vh; /* Define a altura mínima do corpo como 100% da altura da janela */
+  background-color: var(--base-clr-dark); /* Cor de fundo escura por padrão */
+  color: var(--text-clr-dark); /* Cor do texto escura por padrão */
+  display: grid; /* Usa grid para o layout */
+  grid-template-columns: auto 1fr; /* Define duas colunas: uma para a sidebar e outra para o conteúdo */
 }
 
 #sidebar{
@@ -133,295 +137,299 @@ body {
 #toggle-btn:hover{
   background-color: var(--hover-clr);
 }
+/* Estilo da barra lateral */
+#sidebar {
+  box-sizing: border-box; /* Inclui o preenchimento e a borda na largura e altura total */
+  height: 100vh; /* Altura da barra lateral igual à altura da janela */
+  width: 250px; /* Largura fixa da barra lateral */
+  padding: 5px 1em; /* Preenchimento interno */
+  background-color: var(--base-clr-dark); /* Cor de fundo escura da sidebar */
+  border-right: 1px solid var(--line-clr-dark); /* Borda direita da sidebar */
 
-main{
-  padding: min(30px, 7%);
+  position: sticky; /* Mantém a sidebar fixa ao rolar */
+  top: 0; /* Fixa a sidebar ao topo da janela */
+  align-self: start; /* Alinha a sidebar ao início do contêiner */
+  transition: 300ms ease-in-out; /* Define uma transição suave para mudanças de estilo */
+  overflow: hidden; /* Oculta conteúdo que excede a área da sidebar */
+  text-wrap: nowrap; /* Impede a quebra de texto na sidebar */
 }
-main p{
-  color: var(--secondary-text-clr);
-  margin-top: 5px;
-  margin-bottom: 15px;
-}
-.container{
-  border: 1px solid var(--line-clr);
-  border-radius: 1em;
-  margin-bottom: 20px;
-  padding: min(3em, 15%);
 
-  h2, p { margin-top: 1em }
+/* Estilo quando a sidebar está fechada */
+#sidebar.close {
+  padding: 5px; /* Reduz o preenchimento */
+  width: 60px; /* Reduz a largura da sidebar */
 }
 
-@media(max-width: 800px){
-  body{
-    grid-template-columns: 1fr;
-  }
-  main{
-    padding: 2em 1em 60px 1em;
-  }
-  .container{
-    border: none;
-    padding: 0;
-  }
-  #sidebar{
-    height: 60px;
-    width: 100%;
-    border-right: none;
-    border-top: 1px solid var(--line-clr);
-    padding: 0;
-    position: fixed;
-    top: unset;
-    bottom: 0;
-
-    > ul{
-      padding: 0;
-      display: grid;
-      grid-auto-columns: 60px;
-      grid-auto-flow: column;
-      align-items: center;
-      overflow-x: scroll;
-    }
-    ul li{
-      height: 100%;
-    }
-    ul a, ul .dropdown-btn{
-      width: 60px;
-      height: 60px;
-      padding: 0;
-      border-radius: 0;
-      justify-content: center;
-    }
-
-    ul li span, ul li:first-child, .dropdown-btn svg:last-child{
-      display: none;
-    }
-
-    ul li .sub-menu.show{
-      position: fixed;
-      bottom: 60px;
-      left: 0;
-      box-sizing: border-box;
-      height: 60px;
-      width: 100%;
-      background-color: var(--hover-clr);
-      border-top: 1px solid var(--line-clr);
-      display: flex;
-      justify-content: center;
-
-      > div{
-        overflow-x: auto;
-      }
-      li{
-        display: inline-flex;
-      }
-      a{
-        box-sizing: border-box;
-        padding: 1em;
-        width: auto;
-        justify-content: center;
-      }
-    }
-  }
+/* Estilo da lista dentro da sidebar */
+#sidebar ul {
+  list-style: none; /* Remove os marcadores da lista */
 }
+
+/* Estilo para o primeiro item da lista na sidebar */
+#sidebar > ul > li:first-child {
+  display: flex; /* Usa flexbox para alinhar os itens */
+  justify-content: flex-end; /* Alinha o conteúdo à direita */
+  margin-bottom: 16px; /* Margem inferior */
+}
+
+/* Estilo para links e botões na sidebar */
+#sidebar a, #sidebar .dropdown-btn, #sidebar .logo {
+  border-radius: .5em; /* Bordas arredondadas */
+  padding: .85em; /* Preenchimento interno */
+  text-decoration: none; /* Remove sublinhado dos links */
+  color: var(--text-clr-dark); /* Cor do texto escura por padrão */
+  display: flex; /* Usa flexbox para alinhar os itens */
+  align-items: center; /* Alinha os itens verticalmente */
+  gap: 1em; /* Espaçamento entre os itens */
+}
+
+/* Estilo para botões de dropdown na sidebar */
+.dropdown-btn {
+  width: 100%; /* Largura total do botão */
+  text-align: left; /* Alinha o texto à esquerda */
+  background: none; /* Remove o fundo padrão */
+  border: none; /* Remove a borda padrão */
+  font: inherit; /* Herda a fonte do elemento pai */
+  cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+}
+
+/* Estilo para ícones na sidebar */
+#sidebar svg {
+  flex-shrink: 0; /* Impede que o ícone encolha */
+  fill: var(--text-clr-dark); /* Cor do ícone escura por padrão */
+}
+
+/* Estilo para spans dentro de links e botões na sidebar */
+#sidebar a span, #sidebar .dropdown-btn span {
+  flex-grow: 1; /* Permite que o span ocupe o espaço restante */
+}
+
+/* Estilo para hover em links e botões na sidebar */
+#sidebar a:hover, #sidebar .dropdown-btn:hover {
+  background-color: var(--hover-clr-dark); /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo do conteúdo principal */
 main {
-  padding: min(30px, 7%);
+  padding: min(30px, 7%); /* Preenchimento interno */
+  background-color: var(--base-clr-dark); /* Cor de fundo escura por padrão */
 }
 
+/* Estilo para parágrafos no conteúdo principal */
 main p {
-  color: var(--secondary-text-clr);
-  margin-top: 5px;
-  margin-bottom: 15px;
+  color: var(--secondary-text-clr-dark); /* Cor do texto secundário escura por padrão */
+  margin-top: 5px; /* Margem superior */
+  margin-bottom: 15px; /* Margem inferior */
 }
 
+/* Estilo do contêiner */
 .container {
-  border: 1px solid var(--line-clr);
-  border-radius: 1em;
-  margin-bottom: 20px;
-  padding: min(3em, 15%);
+  border: 1px solid var(--line-clr-dark); /* Borda escura por padrão */
+  border-radius: 1em; /* Bordas arredondadas */
+  margin-bottom: 20px; /* Margem inferior */
+  padding: min(3em, 15%); /* Preenchimento interno */
+  background-color: var(--base-clr-dark); /* Cor de fundo escura por padrão */
 }
 
+/* Estilo para títulos e parágrafos dentro do contêiner */
 h2, p {
-  margin-top: 0.5em;
-  margin-bottom:0.25em;
+  margin-top: 0.5em; /* Margem superior */
+  margin-bottom: 0.25em; /* Margem inferior */
+  color: var(--text-clr-dark); /* Cor do texto escura por padrão */
 }
 
-
+/* Estilo do contêiner de checkbox */
 .checkbox-container {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
+  display: flex; /* Usa flexbox para alinhar os itens */
+  align-items: center; /* Alinha os itens verticalmente */
+  margin: 10px 0; /* Margem vertical */
 }
 
+/* Estilo para o input do checkbox */
 .checkbox-container input[type="checkbox"] {
-  opacity: 0;
-  width: 0;
-  height: 0;
+  opacity: 0; /* Torna o checkbox invisível */
+  width: 0; /* Largura zero */
+  height: 0; /* Altura zero */
 }
 
+/* Estilo do slider do checkbox */
 .checkbox-container .slider {
-  position: relative;
-  width: 50px;
-  height: 24px;
-  background-color: var(--line-clr);
-  border-radius: 24px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  position: relative; /* Posiciona o slider em relação ao contêiner */
+  width: 50px; /* Largura do slider */
+  height: 24px; /* Altura do slider */
+  background-color: var(--line-clr-dark); /* Cor de fundo do slider */
+  border-radius: 24px; /* Bordas arredondadas */
+  cursor: pointer; /* Muda o cursor ao passar sobre o slider */
+  transition: background-color 0.3s; /* Transição suave para a cor de fundo */
 }
 
+/* Estilo do círculo dentro do slider */
 .checkbox-container .slider:before {
-  content: "";
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background-color: var(--text-clr);
-  top: 3px;
-  left: 3px;
-  transition: 0.3s;
+  content: ""; /* Necessário para criar um elemento */
+  position: absolute; /* Posiciona o círculo em relação ao slider */
+  width: 18px; /* Largura do círculo */
+  height: 18px; /* Altura do círculo */
+  border-radius: 50%; /* Forma circular */
+  background-color: var(--text-clr-dark); /* Cor do círculo */
+  top: 3px; /* Distância do topo */
+  left: 3 px; /* Distância da esquerda */
+  transition: 0.3s; /* Transição suave para o movimento */
 }
 
+/* Estilo do slider quando o checkbox está marcado */
 .checkbox-container input:checked + .slider {
-  background-color: var(--accent-clr);
+  background-color: var(--accent-clr-dark); /* Cor de fundo do slider quando marcado */
 }
 
+/* Estilo do círculo dentro do slider quando o checkbox está marcado */
 .checkbox-container input:checked + .slider:before {
-  transform: translateX(26px);
+  transform: translateX(26px); /* Move o círculo para a direita quando marcado */
 }
 
-/* Adicionando label para botões */
+/* Estilo do rótulo do checkbox */
 .checkbox-container label {
-  margin-left: 10px;
-  color: var(--secondary-text-clr);
-  font-weight: 500;
+  margin-left: 10px; /* Margem à esquerda do rótulo */
+  color: var(--secondary-text-clr-dark); /* Cor do texto do rótulo */
+  font-weight: 500; /* Peso da fonte do rótulo */
 }
+
+/* Estilo do switch */
 .switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+  position: relative; /* Posiciona o switch em relação ao contêiner */
+  display: inline-block; /* Exibe como um bloco em linha */
+  width: 60px; /* Largura do switch */
+  height: 34px; /* Altura do switch */
 }
 
+/* Estilo do input dentro do switch */
 .switch input { 
-  opacity: 0;
-  width: 0;
-  height: 0;
+  opacity: 0; /* Torna o input invisível */
+  width: 0; /* Largura zero */
+  height: 0; /* Altura zero */
 }
 
+/* Estilo do slider do switch */
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  position: absolute; /* Posiciona o slider em relação ao switch */
+  cursor: pointer; /* Muda o cursor ao passar sobre o slider */
+  top: 0; /* Alinha ao topo */
+  left: 0; /* Alinha à esquerda */
+  right: 0; /* Alinha à direita */
+  bottom: 0; /* Alinha à parte inferior */
+  background-color: #ccc; /* Cor de fundo padrão do slider */
+  transition: .4s; /* Transição suave para mudanças de estilo */
 }
 
+/* Estilo do círculo dentro do slider */
 .slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  position: absolute; /* Posiciona o círculo em relação ao slider */
+  content: ""; /* Necessário para criar um elemento */
+  height: 26px; /* Altura do círculo */
+  width: 26px; /* Largura do círculo */
+  left: 4px; /* Distância da esquerda */
+  bottom: 4px; /* Distância da parte inferior */
+  background-color: white; /* Cor do círculo */
+  transition: .4s; /* Transição suave para o movimento */
 }
 
+/* Estilo do slider quando o input está marcado */
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #2196F3; /* Cor de fundo do slider quando marcado */
 }
 
+/* Estilo do slider quando o input está em foco */
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196F3; /* Sombra ao redor do slider quando em foco */
 }
 
+/* Estilo do círculo dentro do slider quando o input está marcado */
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  transform: translateX(26px); /* Move o círculo para a direita quando marcado */
 }
 
-/* Rounded sliders */
+/* Estilo para sliders arredondados */
 .slider.round {
-  border-radius: 34px;
+  border-radius: 34px; /* Bordas arredondadas do slider */
 }
 
 .slider.round:before {
-  border-radius: 50%;
+  border-radius: 50%; /* Bordas arredondadas do círculo */
 }
+
+/* Estilo do contêiner de conteúdo */
 .content {
-  margin-top: 20px; /* Ajusta a margem superior */
-  
-  padding: 20px; /* Espaçamento interno */
+  margin-top: 20px; /* Margem superior */
+  padding: 20px; /* Preenchimento interno */
   display: flex; /* Usa Flexbox para o layout */
   flex-wrap: wrap; /* Permite que os itens se alinhem em várias linhas */
   gap: 10px; /* Espaçamento entre as seções */
   align-items: flex-start; /* Alinha os itens ao topo */
   overflow: hidden; /* Remove a barra de rolagem */
+  background-color: var(--base-clr-dark); /* Cor de fundo escura por padrão */
 }
 
+/* Estilo do contêiner de conteúdo quando a sidebar está colapsada */
 .content.collapsed {
   margin-left: 60px; /* Margem para o conteúdo quando a sidebar está colapsada */
 }
 
 /* Estilo das seções */
 .section, .large-section {
-  background-color: #32323a; /* Cor de fundo */
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  margin: 40px 40px 50px 0; /* Margem superior, direita, inferior e esquerda */
-  max-width: 500px;
-  min-width: 300px;
-  overflow: hidden;
-  transition: background-color 0.3s, border-color 0.3s;
-  display: flex; /* Usar Flexbox para alinhar o conteúdo */
-  flex-direction: column; /* Alinhar o conteúdo em coluna */
+  background-color: #32323a; /* Cor de fundo padrão das seções */
+  border: 1px solid var(--line-clr-dark); /* Borda escura padrão */
+  border-radius: 5px; /* Bordas arredondadas */
+  margin: 40px 40px 50px 0; /* Margens superior, direita, inferior e esquerda */
+  max-width: 500px; /* Largura máxima */
+  min-width: 300px; /* Largura mínima */
+  overflow: hidden; /* Oculta conteúdo que excede a área da seção */
+  transition: background-color 0.3s, border-color 0.3s; /* Transição suave para mudanças de cor */
+  display: flex; /* Usa Flexbox para alinhar o conteúdo */
+  flex-direction: column; /* Alinha o conteúdo em coluna */
   justify-content: center; /* Centraliza verticalmente */
   align-items: center; /* Centraliza horizontalmente */
   text-align: center; /* Centraliza o texto */
 }
 
+/* Estilo da seção */
 .section {
-  padding-top: 10px;
+  padding-top: 10px; /* Preenchimento superior */
   max-height: 200px; /* Altura máxima */
   min-height: 90px; /* Altura mínima */
 }
 
+/* Estilo da grande seção */
 .large-section {
   max-height: 300px; /* Altura máxima */
   min-height: 200px; /* Altura mínima */
-  flex: 100%;
+  flex: 100%; /* Faz com que a seção ocupe todo o espaço disponível */
 }
-/* Container principal */
+
+/* Estilo do contêiner principal */
 .conteiner {
   max-width: 600px; /* Largura máxima */
-  margin: 20px auto; /* Centraliza o container */
-  padding: 20px;
-  background-color: #383838; /* Fundo branco para a seção do usuário */
+  margin: 20px auto; /* Centraliza o contêiner */
+  padding: 20px; /* Preenchimento interno */
+  background-color: #383838; /* Cor de fundo escura por padrão */
   border-radius: 8px; /* Bordas arredondadas */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-/* Título */
+/* Estilo do título */
 .content-title {
   text-align: center; /* Centraliza o título */
   font-size: 24px; /* Tamanho do texto do título */
-  color: #d1d1d1; /* Cor do texto */
+  color: #d1d1d1; /* Cor do texto do título */
   margin-bottom: 20px; /* Espaço abaixo do título */
 }
 
-/* Seção do usuário */
+/* Estilo da seção do usuário */
 .user-section {
-
   display: flex; /* Exibe os itens em linha */
   flex-direction: column; /* Coloca os itens em coluna */
   align-items: center; /* Centraliza os itens */
 }
 
-/* Ícone do usuário */
+/* Estilo do ícone do usuário */
 .user-icon {
   width: 80px; /* Largura do ícone */
   height: 80px; /* Altura do ícone */
@@ -429,14 +437,14 @@ input:checked + .slider:before {
   margin-bottom: 15px; /* Espaço abaixo do ícone */
 }
 
-/* Informações do usuário */
+/* Estilo das informações do usuário */
 .user-info {
   font-size: 16px; /* Tamanho do texto das informações */
   color: #969696; /* Cor do texto das informações */
   margin: 5px 0; /* Espaço entre as informações */
 }
 
-/* Botões do usuário */
+/* Estilo dos botões do usuário */
 .user-button {
   padding: 10px 20px; /* Espaçamento interno do botão */
   margin: 10px 0; /* Espaço acima e abaixo do botão */
@@ -448,64 +456,69 @@ input:checked + .slider:before {
   transition: background-color 0.3s; /* Efeito de transição ao passar o mouse */
 }
 
-/* Efeito de hover nos botões */
+/* Efeito de hover nos botões do usuário */
 .user-button:hover {
-  background-color: #0056b3; /* Cor de fundo quando o mouse está sobre o botão */
+  background-color: #0056b3; /* Cor de fundo ao passar o mouse */
 }
 
+/* Estilo do contêiner de login */
 .login-container {
-  background-color:#11121a;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  background-color: #11121a; /* Cor de fundo escura do contêiner de login */
+  padding: 20px; /* Preenchimento interno */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  max-width: 400px; /* Largura máxima */
+  margin: auto; /* Centraliza o contêiner */
+  display: flex; /* Usa Flexbox para o layout */
+  flex-direction: column; /* Coloca os itens em coluna */
+  align-items: center; /* Centraliza os itens */
+  justify-content: center; /* Centraliza verticalmente */
+  text-align: center; /* Centraliza o texto */
 }
 
+/* Estilo do título no contêiner de login */
 .login-container h2 {
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Espaço abaixo do título */
+  color: #e0e0e0; /* Cor do texto do título */
 }
 
+/* Estilo dos inputs no contêiner de login */
 .login-container input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px -10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  width: 100%; /* Largura total */
+  padding: 10px; /* Preenchimento interno */
+  margin: 10px -10px; /* Margem negativa para alinhar */
+  border: 1px solid #ccc; /* Borda padrão do input */
+  border-radius: 4px; /* Bordas arredondadas */
 }
 
+/* Estilo do botão no contêiner de login */
 .login-container button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  width: 100%; /* Largura total */
+  padding: 10px; /* Preenchimento interno */
+  margin-top: 20px; /* Espaço acima do botão */
+  background-color: #007bff; /* Cor de fundo do botão */
+  color: #fff; /* Cor do texto do botão */
+  border: none; /* Remove borda padrão */
+  border-radius: 4px; /* Bordas arredondadas */
+  cursor: pointer; /* Muda o cursor ao passar sobre o botão */
 }
 
+/* Efeito de hover no botão do contêiner de login */
 .login-container button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Cor de fundo ao passar o mouse */
 }
 
-
-/* Estiliza o contêiner principal dos dependentes */
+/* Estilo do contêiner de dependentes */
 .container-dependentes {
-  min-width:900px;
-  margin: 10px auto;
-  padding: 20px;
-  background-color: #1c1c1c;
-  border: 1px solid #333;
-  border-radius: 3px;
+  min-width: 900px; /* Largura mínima */
+  margin: 10px auto; /* Margem superior e centraliza */
+  padding: 20px; /* Preenchimento interno */
+  background-color: #1c1c1c; /* Cor de fundo escura */
+  border: 1px solid #333; /* Borda escura */
+  border-radius: 3px; /* Bordas arredondadas */
 }
 
-/* Estiliza o cabeçalho do perfil dos dependentes */
+/* Estilo do cabeçalho do perfil dos dependentes */
 .profile-header-dependentes {
   display: flex; /* Usa flexbox para alinhar os itens */
   align-items: center; /* Alinha os itens verticalmente ao centro */
@@ -513,7 +526,7 @@ input:checked + .slider:before {
   border-bottom: 1px solid #333; /* Borda inferior */
 }
 
-/* Estiliza a foto de perfil dos dependentes */
+/* Estilo da foto de perfil dos dependentes */
 .profile-pic-dependentes {
   width: 150px; /* Largura da imagem */
   height: 150px; /* Altura da imagem */
@@ -522,44 +535,44 @@ input:checked + .slider:before {
   object-fit: cover; /* Ajusta a imagem para cobrir o contêiner */
 }
 
-/* Estiliza as informações do perfil dos dependentes */
+/* Estilo das informações do perfil dos dependentes */
 .profile-info-dependentes {
   flex: 1; /* Faz com que o elemento ocupe o espaço restante */
 }
 
-/* Estiliza o título das informações do perfil */
+/* Estilo do título das informações do perfil */
 .profile-info-dependentes h1 {
   font-size: 28px; /* Tamanho da fonte */
   margin: 0; /* Remove a margem */
-  color: #fff; /* Cor do texto */
+  color: #fff; /* Cor do texto do título */
 }
 
-/* Estiliza os parágrafos das informações do perfil */
+/* Estilo dos parágrafos das informações do perfil */
 .profile-info-dependentes p {
   margin: 5px 0; /* Margem vertical */
   color: #999; /* Cor do texto */
 }
 
-/* Estiliza as seções dos dependentes */
+/* Estilo das seções dos dependentes */
 .section-dependentes {
   padding: 20px; /* Espaçamento interno */
 }
 
-/* Estiliza os títulos das seções dos dependentes */
+/* Estilo dos títulos das seções dos dependentes */
 .section-dependentes h2 {
   font-size: 18px; /* Tamanho da fonte */
   border-bottom: 1px solid #333; /* Borda inferior */
   padding-bottom: 10px; /* Espaçamento inferior */
   margin-bottom: 20px; /* Margem inferior */
-  color: #fff; /* Cor do texto */
+  color: #fff; /* Cor do texto do título */
 }
 
-/* Estiliza as informações dos dependentes */
+/* Estilo das informações dos dependentes */
 .info-dependentes {
   margin-bottom: 10px; /* Margem inferior */
 }
 
-/* Estiliza os rótulos das informações dos dependentes */
+/* Estilo dos rótulos das informações dos dependentes */
 .info-dependentes label {
   font-weight: bold; /* Negrito */
   display: block; /* Exibe como bloco */
@@ -567,99 +580,126 @@ input:checked + .slider:before {
   color: #999; /* Cor do texto */
 }
 
-/* Estiliza os valores das informações dos dependentes */
+/* Estilo dos valores das informações dos dependentes */
 .info-dependentes span {
   color: #fff; /* Cor do texto */
 }
+
+/* Estilo do corpo da página */
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif; /* Fonte padrão */
   background-color: #121212; /* Cor de fundo escura */
-  color: #e0e0e0; /* Cor do texto clara */
-  margin: 0;
-  padding: 0;
+  color: #e0e0e0; /* Cor do texto do corpo */
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove preenchimento padrão */
 }
+
+/* Estilo do contêiner de documentos */
 .container-documentos {
-  width: 80%;
-  margin: auto;
-  overflow: hidden;
+  width: 80%; /* Largura do contêiner */
+  margin: auto; /* Centraliza o contêiner */
+  overflow: hidden; /* Oculta conteúdo que excede a área */
 }
+
+/* Estilo do cabeçalho dos documentos */
 .header-documentos {
-  background: #1f1f1f; /* Cor de fundo do cabeçalho escura */
-  color: #e0e0e0; /* Cor do texto clara */
-  padding-top: 30px;
-  min-height: 70px;
-  border-bottom: #77aaff 3px solid;
+  background: #1f1f1f; /* Cor de fundo escura do cabeçalho */
+  color: #e0e0e0; /* Cor do texto do cabeçalho */
+  padding-top: 30px; /* Preenchimento superior */
+  min-height: 70px; /* Altura mínima do cabeçalho */
+  border-bottom: #77aaff 3px solid; /* Borda inferior do cabeçalho */
 }
+
+/* Estilo dos links no cabeçalho */
 .header-documentos a {
   color: #77aaff; /* Cor dos links */
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 16px;
+  text-decoration: none; /* Remove sublinhado dos links */
+  text-transform: uppercase; /* Transforma o texto em maiúsculas */
+  font-size: 16px; /* Tamanho da fonte dos links */
 }
+
+/* Estilo da navegação no cabeçalho */
 .nav-documentos {
-  float: right;
-  margin-top: 10px;
+  float: right; /* Alinha a navegação à direita */
+  margin-top: 10px; /* Margem superior */
 }
+
+/* Estilo da lista de navegação */
 .nav-documentos ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  margin: 0; /* Remove margens */
+  padding: 0; /* Remove preenchimento */
+  list-style: none; /* Remove marcadores da lista */
 }
+
+/* Estilo dos itens da lista de navegação */
 .nav-documentos ul li {
-  display: inline;
-  margin-left: 5px;
+  display: inline; /* Exibe os itens em linha */
+  margin-left: 5px; /* Margem à esquerda */
 }
+
+/* Estilo do conteúdo dos documentos */
 .content-documentos {
-  padding: 20px;
-  background: #1c1c1c; /* Cor de fundo das seções */
-  margin-top: 20px;
+  padding: 20px; /* Preenchimento interno */
+  background: #1c1c1c; /* Cor de fundo escura */
+  margin-top: 20px; /* Margem superior */
   border-radius: 5px; /* Bordas arredondadas */
 }
+
+/* Estilo dos títulos */
 h1, h2 {
-  text-align: center;
-  color: #e0e0e0; /* Cor do texto clara */
+  text-align: center; /* Centraliza o título */
+  color: #e0e0e0; /* Cor do texto do título */
 }
+
+/* Estilo dos documentos */
 .document {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
+  display: flex; /* Usa flexbox para alinhar os itens */
+  justify-content: space-between; /* Espaço entre os itens */
+  align-items: center; /* Alinha os itens verticalmente */
+  padding: 10px; /* Preenchimento interno */
   border-bottom: 1px solid #333; /* Borda inferior */
 }
+
+/* Estilo dos botões dentro dos documentos */
 .document button {
-  padding: 5px 10px;
-  margin-left: 10px;
-  background-color: #333; /* Cor de fundo dos botões */
-  color: #e0e0e0; /* Cor do texto dos botões */
-  border: none;
-  border-radius: 3px; /* Bordas arredondadas dos botões */
-  cursor: pointer;
+  padding: 5px 10px; /* Preenchimento interno do botão */
+  margin-left: 10px; /* Margem à esquerda do botão */
+  background-color: #333; /* Cor de fundo do botão */
+  color: #e0e0e0; /* Cor do texto do botão */
+  border: none; /* Remove borda padrão */
+  border-radius: 3px; /* Bordas arredondadas do botão */
+  cursor: pointer; /* Muda o cursor ao passar sobre o botão */
 }
+
+/* Efeito de hover nos botões dos documentos */
 .document button:hover {
-  background-color: #444; /* Cor de fundo dos botões ao passar o mouse */
-}
-.Voltar{
-  text-align: center;
-  border-radius: 7px;
-  background-color: #0056b3;
+  background-color: #444; /* Cor de fundo ao passar o mouse */
 }
 
-/* Estilos para os botões */
+/* Estilo do botão de voltar */
+.Voltar {
+  text-align: center; /* Centraliza o texto */
+  border-radius: 7px; /* Bordas arredondadas */
+  background-color: #0056b3; /* Cor de fundo do botão */
+}
+
+/* Estilos gerais para os botões */
 button {
-  background-color: #001170;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.3s;
+  background-color: #001170; /* Cor de fundo padrão dos botões */
+  border: none; /* Remove borda padrão */
+  color: white; /* Cor do texto dos botões */
+  padding: 10px 20px; /* Preenchimento interno */
+  text-align: center; /* Alinha o texto ao centro */
+  text-decoration: none; /* Remove sublinhado */
+  display: inline-block; /* Exibe como bloco em linha */
+  font-size: 16px; /* Tamanho da fonte */
+  margin: 4px 2px; /* Margens */
+  cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+  border-radius: 8px; /* Bordas arredondadas */
+  transition: background-color 0.3s; /* Transição suave para mudanças de cor */
 }
 
+/* Efeito de hover nos botões gerais */
 button:hover {
-  background-color: #00054b;
+  background-color: #00054b; /* Cor de fundo ao passar o mouse */
 }
