@@ -82,25 +82,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     calendar.render();
   }
-
-  const adminSwitch = document.getElementById('adminSwitch');
-
-// Verifica o estado salvo no localStorage
-if (localStorage.getItem('adminSwitchState') === 'true') {
-    adminSwitch.checked = true;
-}
-
+// Modo ADM
+const adminSwitch = document.getElementById('adminSwitch');
 if (adminSwitch) {
-    adminSwitch.addEventListener('change', function() {
-        if (this.checked) {
-            localStorage.setItem('adminSwitchState', 'true');
-            window.location.href = 'ADM.html';
-        } else {
-            localStorage.setItem('adminSwitchState', 'false');
-        }
-    });
+  adminSwitch.addEventListener('change', function() {
+    if (this.checked) {
+      window.location.href = 'ADM.html';
+    }
+  });
 }
-
+});
   
 function mostrarSecao(secaoId) {
   // Esconde todas as seções
@@ -123,3 +114,76 @@ function editar(arquivo) {
   alert('Editar ' + arquivo);
 }
 
+  
+document.getElementById('admin-login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    const adminId = document.getElementById('admin-id').value;
+    const password = document.getElementById('password').value;
+
+    fetch('/ADMIndex.html', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ adminId: adminId, password: password })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Página não encontrada');
+        }
+        return response.text();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        // Aqui você pode adicionar lógica para redirecionar o usuário ou mostrar uma mensagem de sucesso
+        window.location.href = 'ADMindex23.html'; // Redireciona para a página ADMIndex.html
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('Erro ao tentar acessar a página. Verifique se a página ADMIndex.html existe e está no local correto.');
+    });
+});
+
+
+
+
+  
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            dateClick: function(info) {
+                // Preencher os campos do formulário automaticamente
+                document.getElementById('data').value = info.dateStr; // Data clicada
+                document.getElementById('descricao').focus(); // Focar no campo de descrição
+            },
+            events: [] // Aqui você pode carregar eventos do servidor, se necessário
+        });
+
+        calendar.render();
+
+        // Envio do formulário
+        document.getElementById('salvar').addEventListener('click', function() {
+            var title = document.getElementById('descricao').value;
+            var date = document.getElementById('data').value + 'T' + document.getElementById('horario').value; // Formatar data e horário
+
+            // Adicionar evento ao calendário
+            calendar.addEvent({
+                title: title,
+                start: date,
+                allDay: false // Definir como all-day se necessário
+            });
+
+            // Limpar os campos do formulário
+            document.querySelector('.form').reset();
+            document.getElementById('imagePreview').style.display = 'none'; // Ocultar imagem
+        });
+    });
+
+    function previewImage(event) {
+        const image = document.getElementById('imagePreview');
+        image.src = URL.createObjectURL(event.target.files[0]);
+        image.style.display = 'block';
+    }
