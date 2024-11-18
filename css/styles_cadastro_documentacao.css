@@ -1,0 +1,81 @@
+:root{
+    --cor-principal:#00719C;
+    --textos: white;
+    --h3: #32ABDB;
+}
+
+body{
+    background-color: var(--cor-principal);
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    color: var(--textos);
+}
+
+.formulario {
+    padding: 20px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+    margin-top: 10vh;
+}
+
+.formularioDiferente{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10vh auto;
+    width: 50%; 
+    
+}
+
+.formulario h3 {
+    max-width: 8vw;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    text-align: left;
+    margin-bottom: 10px;
+    background-color: var(--h3);
+}
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    color: var(--textos);
+}
+.form-group label {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.form-group input[type="text"], 
+.form-group input[type="email"], 
+.form-group input[type="date"] {
+    flex: 1;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    max-width: 20vw;
+}
+
+.botao_enviar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+#enviar{
+    background-color: var(--h3);
+    border-radius: 4px;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+
+
+}

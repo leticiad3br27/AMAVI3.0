@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/escolher_patente.css">
+    <link rel="stylesheet" href="/css/reset_cadastro_documentacao.css">
+    <link rel="stylesheet" href="/css/styles_cadastro_documentacao.css">
+    <title>Cadastrar documentação - AMAVI</title>
+</head>
+<body>
+
+    <main>
+        <!--Patente-->
+        <div class="tab-patente">
+            <div id="responsavel" class="tab" onclick="redirectTo('responsavel')">Responsável</div>
+            <div id="beneficiario" class="tab" onclick="redirectTo('beneficiario')">Beneficiário</div>
+        </div>
+        
+        <!--Início do formulário-->
+        <h1 style="font-size: 30px;">Informações do pai do beneficiário</h1>
+
+        <div class="formulario">
+            <h3>Dados pessoais</h3>
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+                
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" class="medium-input" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" required>
+                
+                <label for="email">E-MAIL:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="nascimento">Nascimento:</label>
+                <input type="date" id="nascimento" name="nascimento" required>
+                
+                <label for="rg">RG:</label>
+                <input type="text" id="rg" name="rg" class="medium-input" required>
+            </div>
+            <div class="form-group">
+                <label for="profissao">Profissão:</label>
+                <input type="text" id="profissao" name="profissao" required>
+            </div>
+            <!--Endereço e ViaCep-->
+            <h3 style="max-width: 6vw;">Endereço</h3>
+            
+            <div class="form-group">
+                <label for="CEP">CEP:</label>
+                <input type="text" id="CEP" name="CEP" required>
+            </div>
+            <div class="form-group">
+
+                <label for="rua">Rua:</label>
+                <input type="text" id="rua" name="rua" required>
+                
+                <label for="numero">Número:</label>
+                <input type="text" id="numero" name="numero" class="small-input" required>
+            </div>
+            <div class="form-group">
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" required>
+
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" name="estado" class="medium-input" required>
+            </div>
+        </div>
+
+        <div class="botao_enviar">
+            <a href="#"><button id="enviar">Enviar</button></a>
+        </div>
+        
+    </main>
+
+</body>
+<script src="/java_script_cadastro_documentacao/escolher_patente.js"></script>
+</html>

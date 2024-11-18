@@ -1,0 +1,27 @@
+/* Estilos iniciais */
+.tab-patente {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1.2em;
+}
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+    border-radius: 5px;
+}
+
+.tab.active {
+    background-color: #007BFF; /* Cor de fundo para aba ativa */
+    color: white; /* Cor do texto */
+    font-weight: bold; /* Texto em negrito */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+}
+
+.tab:hover {
+    background-color: #555;
+}
