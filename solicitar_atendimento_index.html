@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Solicitar Atendimento - AMAVI</title>
+</head>
+<body>
+    <header>
+        <div id="menuBar">
+            <img id="menuIcon" src="icons/icon.png" alt="Menu Icon">
+        </div>
+        <script src="js/menu.js"></script>
+    
+        
+    </header>
+    <main>
+        <h1 style="font-size: 30px;">REQUERIMENTO/SOLICITAR ATENDIMENTO</h1>
+        <div class="alinhamento">
+            <label for="inputDescricao" style="margin-top: 2vh;">Descrição: </label>
+            <input type="text" id="inputDescricao" name="descricao">
+            <label for="dependente" style="font-size: 20px; margin-top: 2vh;">Dependente:</label>
+            <select name="dependente" id="dependente">
+                <option value="Opção 1">Dependente 1</option>
+                <option value="Opção 2">Dependente 2</option>
+                <option value="Opção 3">Dependente 3</option>
+            </select>
+            <label for="anexarDocumento" style="font-size: 20px; margin-top: 2vh;">Anexar  Documento:</label>
+            <select name="anexarDocumento" id="anexarDocumento">
+                <option value="Opção 1" id="selectDocumento">Opção 1</option>
+                <option value="Opção 2" id="selectDocumento">Opção 2</option>
+                <option value="Opção 3" id="selectDocumento">Opcão 3</option>
+            </select>
+        </div>
+        <div class="botao_enviar">
+            <a href="#"><button id="enviar">Enviar</button></a>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

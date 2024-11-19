@@ -1,0 +1,57 @@
+body{
+    background-color: #636363
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.alinhamento{
+    display: flex;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+    
+}
+
+#inputDescricao{
+    height: 30vh;
+    width: 80%;
+    border-radius: 10px;
+}
+
+#anexarDocumento{
+    height: 5vh;
+    width: 20%;
+    border-radius: 10px;
+}
+
+select{
+    width: 20%;
+    border-radius: 10px;
+}
+
+.selectDocumento{
+    border-radius: 5px;
+    width: 20%;
+}
+
+label{
+    font-size: 30px;
+}
+
+.botao_enviar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+#enviar{
+    background-color: #32ABDB;
+    border-radius: 4px;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+}

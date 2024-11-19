@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="css/Eventos.css">
+    <link href="css/AoboshiOne-Regular.ttf" rel="stylesheet">
+</head>
+<body>
+    <div id="menuBar">
+        <img id="menuIcon" src="img/img.jpg" alt="Menu Icon">
+    </div>
+
+    <div class="eve">
+        <h1>Eventos</h1>
+    </div>
+    <div class="div-cards">
+        <div class="divcard" onclick="openModal('Evento 1', 'Descrição do Evento 1fjoidf dfinodfnoifi n ', 'Data do Evento 1y ghdgfbv thfg gfgfgf', 'Horário do Evento 1gffgfghfgdgfhdfghtrrt', 'Local do Evento 1fghsd fgwersr fgs')">
+            <a href="#"><img class="imgnh" src="img/evet.jpg" alt="imagem aqui"></a>
+            <h3>Evento 1</h3>
+            <p>Eventos Eventos Eventos Eventos</p>
+        </div>
+        <div class="divcard" onclick="openModal('Evento 2', 'Descrição do Evento 2  d uhg  ufgoshrugu ndfidufiuns', 'Data do Evento 2jufya  iiuergf j', 'Horário do Evento 2tyryty6y oiht', 'Local do Evento 2 byuyufiuuiu ')">
+            <a href="#"><img class="imgnh" src="img/evet.jpg" alt="imagem aqui"></a>
+            <h3>Evento 2</h3>
+            <p>Eventos Eventos Eventos Eventos</p>
+        </div>
+        <div class="divcard" onclick="openModal('Evento 3', 'Descrição do Evento 3 nfiudfiuudfniudbd', 'Data do Evento 3$$$$$$ $$$$$$$$$ $$$$$$$$$$$$$ $$$$$$$$$', 'Horário do Evento 3###############', 'Local do Evento 3**********')">
+            <a href="#"><img class="imgnh" src="img/evet.jpg" alt="imagem aqui"></a>
+            <h3>Evento 3</h3>
+            <p>Eventos Eventos Eventos Eventos</p>
+        </div>
+    </div> 
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Título do Evento</h2>
+            <img id="modal-image" src="img/evet.jpg" alt="imagem do evento">
+            <p><strong>Descrição:</strong> <span id="modal-description"></span></p>
+            <p><strong>Data:</strong> <span id="modal-date"></span></p>
+            <p><strong>Horário:</strong> <span id="modal-time"></span></p>
+            <p><strong>Local:</strong> <span id="modal-location"></span></p>
+        </div>
+    </div>
+
+    <script src="js/menu (1).js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

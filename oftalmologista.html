@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Vagas</title>
+  <link rel="stylesheet" href="css/atendimentos.css">
+</head>
+<body>
+  <!-- Barra do menu -->
+  <div id="menuBar">
+    <img id="menuIcon" src="img/img.jpg" alt="Menu Icon">
+  </div>
+
+  <!-- Container principal -->
+  <div class="container">
+    <img src="img/Oftalmologista.png" alt="Imagem ilustrativa">
+    <h1>Temos uma lista de vagas. Você gostaria de se candidatar?</h1>
+    <form action="processa_cadastro.php" method="POST">
+      <label for="inscricoes">N. inscrições: 0/100</label>
+      <input type="text" id="nome" name="nome" placeholder="Nome" required>
+
+      <!-- Lista de dependentes -->
+      <label for="dependente">Dependente:</label>
+      <select id="dependente" name="dependente" required>
+        <option value="" disabled selected>Selecione um dependente</option>
+        
+      </select>
+
+      <button type="submit">Inscrever-se</button>
+    </form>
+  </div>
+
+  <!-- Script JS -->
+  <script src="js/menu.js"></script>
+</body>
+</html>

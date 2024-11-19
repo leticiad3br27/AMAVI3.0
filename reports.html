@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatório do Site</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .statistics {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 30px;
+    }
+
+    .stat {
+      background-color: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 15px;
+      text-align: center;
+      border-radius: 5px;
+      width: 18%;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    table th {
+      background-color: #f4f4f4;
+    }
+
+    .chart-container {
+      margin-top: 30px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Relatório do Site</h1>
+  </header>
+
+  <main class="container">
+    <!-- Estatísticas -->
+    <section class="statistics">
+      <div class="stat">
+        <h2>Pessoas Online</h2>
+        <p>35</p>
+      </div>
+      <div class="stat">
+        <h2>Cadastros</h2>
+        <p>1250</p>
+      </div>
+      <div class="stat">
+        <h2>Contas Deletadas</h2>
+        <p>87</p>
+      </div>
+      <div class="stat">
+        <h2>Eventos Ativos</h2>
+        <p>12</p>
+      </div>
+      <div class="stat">
+        <h2>Requerimentos Pendentes</h2>
+        <p>5</p>
+      </div>
+    </section>
+
+    <!-- Gráfico -->
+    <section class="chart-container">
+      <h2>Visão Geral</h2>
+      <canvas id="myChart" width="400" height="200"></canvas>
+    </section>
+
+    <!-- Tabela Detalhada -->
+    <section class="details">
+      <h2>Detalhes do Relatório</h2>
+      <table id="reportTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Categoria</th>
+            <th>Descrição</th>
+            <th>Quantidade</th>
+            <th>Última Atualização</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Acessos</td>
+            <td>Total de acessos únicos</td>
+            <td>7523</td>
+            <td>19/11/2024</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Cadastros</td>
+            <td>Novos usuários registrados</td>
+            <td>28</td>
+            <td>19/11/2024</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Contas Deletadas</td>
+            <td>Usuários removidos</td>
+            <td>5</td>
+            <td>19/11/2024</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Eventos Ativos</td>
+            <td>Eventos em andamento</td>
+            <td>12</td>
+            <td>19/11/2024</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Requerimentos</td>
+            <td>Pedidos pendentes</td>
+            <td>5</td>
+            <td>19/11/2024</td>
+          </tr>
+        </tbody>
+      </table>
+      <button id="exportPdf">Exportar para PDF</button>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    // Inicializar DataTables
+    $(document).ready(function() {
+      $('#reportTable').DataTable({
+        pageLength: 5,
+        language: {
+          url: "//cdn.datatables.net/plug-ins/1.13.1/i18n/pt-BR.json"
+        }
+      });
+    });
+
+    // Gráfico com Chart.js
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Pessoas Online', 'Cadastros', 'Contas Deletadas', 'Eventos Ativos', 'Requerimentos'],
+        datasets: [{
+          label: 'Quantidade',
+          data: [35, 1250, 87, 12, 5],
+          backgroundColor: [
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 99, 132, 0.2)'
+          ],
+          borderColor: [
+            'rgba(75, 192, 192, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 99, 132, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Exportar PDF com jsPDF
+    document.getElementById('exportPdf').addEventListener('click', () => {
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF();
+
+      pdf.text('Relatório do Site', 10, 10);
+      pdf.text('Pessoas Online: 35', 10, 20);
+      pdf.text('Cadastros: 1250', 10, 30);
+      pdf.text('Contas Deletadas: 87', 10, 40);
+
+      pdf.save('relatorio.pdf');
+    });
+  </script>
+</body>
+</html>

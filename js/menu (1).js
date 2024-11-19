@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const menuItens = [
         { name: 'Home', url: 'index.html' },
-        { name: 'Atendimento', url: 'atendimentos.html' },
+        { name: 'Atendimento', url: 'solicitar_atendimento_index.html' },
         { name: 'Eventos', url: 'eventos.html' },
         { name: 'Doações', url: 'doacoes.html' }
     ];

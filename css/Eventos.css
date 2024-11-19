@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+main {
+    text-align: center;
+    padding: 50px 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #217FA4;
+}
+
+#menuBar {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #053d63;
+}
+
+.eve{
+    background-color: #016085;
+    border-radius: 35px;
+    max-width: 500px;
+    min-height: 100px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 70px auto 30px;
+}
+.imgnh{
+    width: 350px;
+    height: 200px;
+    margin: 0 auto;
+    display: block;
+    border: #217FA4;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    font-size: 500%;
+}
+
+.div-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #217FA4;
+    border-radius: 10px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.divcard {
+    background-color: #419CBF;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.imgnh {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+a{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 150%;   
+}
+.projetos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+h3{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+}
+p{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 25px;
+}
+@media (min-width: 600px) {
+    .divcard {
+        width: 45%;
+    }
+}
+
+@media (min-width: 900px) {
+    .divcard {
+        width: 30%;
+    }
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.modal-content {
+    background-color: #419CBF;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    color: #053d63;
+}
+
+.modal img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.close {
+    color: #134d83;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
