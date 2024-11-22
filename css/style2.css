@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    flex-direction: column;
+    gap: 20px;
+    background-color: #217FA4;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+}
+
+#menuBar {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.cons {
+    margin-top: 10px;
+    min-height: 45px;
+    text-align: center;
+    margin-top: 2;
+}
+
+#nome {
+    max-width: 25%;
+    min-height: 30px;
+    border-radius: 10px;
+    margin-top: 1px;
+    margin-left: 37%;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.search-bar input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border-radius: 4px 0 0 4px;
+    border: none;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 15px 12px;
+    background-color: #004D5A;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    background-color: #2997c2;
+    padding: 20px;
+    border-radius: 8px;
+    color: black;
+    width: 70%;
+    justify-content: space-between;
+}
+
+.info-text {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.info p {
+    margin: 8px 0;
+}
+
+.profile-image {
+    flex: 0 0 auto;
+}
+
+.profile-image img {
+    width: 2-0px; 
+    border-radius: 8px;
+}
+@media (min-width: 600px) {
+    .divcard {
+        width: 45%;
+    }
+}
+
+@media (min-width: 900px) {
+    .divcard {
+        width: 30%;
+    }
+}
